@@ -22,7 +22,7 @@ public class PetResource {
 		return Response.ok(DB.getPetTable()).build();
 	}
 
-	//search a pet by pet ID =========================================================
+	//--------------------------SEARCH PET--------------------------------
 	@Path("{petId}")
 	@GET
 	@APIResponses(value = {
@@ -79,7 +79,7 @@ public class PetResource {
 	public void deletePet(@RequestBody Pet pet) {
 		Pet deletedPet = null;
 		for (Pet pet1 : DB.getPetTable()) {
-			if (pet1.getPetId() == pet.getPetId()){
+			if (pet1.getPetId().equals(pet.getPetId())){
 				DB.deletePet(pet1);
 			}
 		}

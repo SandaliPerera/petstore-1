@@ -23,7 +23,7 @@ public class TypeResource {
         return Response.ok(DB.getTypeTable()).build();
     }
 
-    //search a pet Type by Type ID =========================================================
+    //--------------------------Search for a Pet Type---------------------------------
     @Path("{petTypeId}")
     @GET
     @APIResponses(value = {
@@ -39,7 +39,7 @@ public class TypeResource {
         return Response.ok(type).build();
     }
 
-    //Add new pet Type=========================================================
+    //--------------------------Add New Pet Type---------------------------------
     @Path("addtype")
     @POST
     @APIResponses(value = {
@@ -52,7 +52,7 @@ public class TypeResource {
         return Response.ok(savedType).build();
     }
 
-    //update a pet Type =========================================================
+    //--------------------------Update a Pet Type---------------------------------
     @Path("updatetype")
     @PUT
     @APIResponses(value = {
@@ -70,7 +70,7 @@ public class TypeResource {
         return Response.ok(updatedPetType).build();
     }
 
-    //delete a pet Type=========================================================
+    //--------------------------Delete a Pet Type---------------------------------
     @Path("deletetype")
     @DELETE
     @Consumes(MediaType.APPLICATION_JSON)
