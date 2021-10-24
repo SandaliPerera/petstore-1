@@ -1,8 +1,7 @@
 package com.example.petstore;
 
-import org.eclipse.microprofile.openapi.annotations.media.Schema;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 @Schema(name = "Pet")
 public class Pet {
@@ -53,5 +52,6 @@ public class Pet {
 	public void setPetAge(Integer petAge) {
 		this.petAge = petAge;
 	}
+
 
 }
