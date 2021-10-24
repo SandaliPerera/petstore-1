@@ -38,7 +38,7 @@ public class PetResource {
 		return Response.ok(pet).build();
 	}
 
-	//Add new pet =========================================================
+	//--------------------------ADD NEW PET--------------------------------
 	@APIResponses(value = {
 			@APIResponse(responseCode = "200", description = "Pet added", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(ref = "Pet"))),
 			@APIResponse(responseCode = "404", description = "Pet adding failed.") })
@@ -53,7 +53,7 @@ public class PetResource {
 		return Response.ok(savedPet).build();
 	}
 
-	//update a pet =========================================================
+	//--------------------------UPDATE PET--------------------------------
 	@APIResponses(value = {
 			@APIResponse(responseCode = "200", description = "Pet updated", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(ref = "Pet"))),
 			@APIResponse(responseCode = "404", description = "Pet updating failed.") })
@@ -64,14 +64,14 @@ public class PetResource {
 	public Response updatePet(@RequestBody Pet pet) {
 		Pet updatedPet = null;
 		for (Pet pet1 : DB.getPetTable()) {
-			if (pet1.getPetId() == pet.getPetId()){
+			if (pet1.getPetId().equals(pet.getPetId())){
 				updatedPet= DB.updatePet(pet1, pet);
 			}
 		}
 		return Response.ok(updatedPet).build();
 	}
 
-	//delete a pet =========================================================
+	//--------------------------DELETE PET--------------------------------
 	@DELETE
 	@Path("delete")
 	@Consumes(MediaType.APPLICATION_JSON)
